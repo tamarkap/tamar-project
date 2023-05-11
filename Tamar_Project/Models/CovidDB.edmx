@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HMO_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Corona_information">
+          <Key>
+            <PropertyRef Name="member_id" />
+          </Key>
+          <Property Name="member_id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="t_positive_answer" Type="datetime" />
+          <Property Name="recovery_date" Type="datetime" />
+          <Property Name="id_vaccination_1" Type="int" />
+          <Property Name="id_vaccination_2" Type="int" />
+          <Property Name="id_vaccination_3" Type="int" />
+          <Property Name="id_vaccination_4" Type="int" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="member_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="member_last_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="city_address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="street_address" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="house_number" Type="bigint" Nullable="false" />
+          <Property Name="date_of_birth" Type="datetime" Nullable="false" />
+          <Property Name="phone" Type="bigint" Nullable="false" />
+          <Property Name="mobile_phone" Type="bigint" Nullable="false" />
+          <Property Name="image" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Vaccination">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="vaccination_date" Type="datetime" Nullable="false" />
+          <Property Name="vaccine_manufacturer" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Corona_in__id_va__3B75D760">
+          <End Role="Vaccination" Type="Self.Vaccination" Multiplicity="0..1" />
+          <End Role="Corona_information" Type="Self.Corona_information" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vaccination">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Corona_information">
+              <PropertyRef Name="id_vaccination_1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Corona_in__id_va__3C69FB99">
+          <End Role="Vaccination" Type="Self.Vaccination" Multiplicity="0..1" />
+          <End Role="Corona_information" Type="Self.Corona_information" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vaccination">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Corona_information">
+              <PropertyRef Name="id_vaccination_2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Corona_in__id_va__3D5E1FD2">
+          <End Role="Vaccination" Type="Self.Vaccination" Multiplicity="0..1" />
+          <End Role="Corona_information" Type="Self.Corona_information" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vaccination">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Corona_information">
+              <PropertyRef Name="id_vaccination_3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Corona_in__id_va__3E52440B">
+          <End Role="Vaccination" Type="Self.Vaccination" Multiplicity="0..1" />
+          <End Role="Corona_information" Type="Self.Corona_information" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vaccination">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Corona_information">
+              <PropertyRef Name="id_vaccination_4" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Corona_in__membe__3A81B327">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="Corona_information" Type="Self.Corona_information" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Corona_information">
+              <PropertyRef Name="member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HMO_DBModelStoreContainer">
+          <EntitySet Name="Corona_information" EntityType="Self.Corona_information" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vaccination" EntityType="Self.Vaccination" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Corona_in__id_va__3B75D760" Association="Self.FK__Corona_in__id_va__3B75D760">
+            <End Role="Vaccination" EntitySet="Vaccination" />
+            <End Role="Corona_information" EntitySet="Corona_information" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Corona_in__id_va__3C69FB99" Association="Self.FK__Corona_in__id_va__3C69FB99">
+            <End Role="Vaccination" EntitySet="Vaccination" />
+            <End Role="Corona_information" EntitySet="Corona_information" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Corona_in__id_va__3D5E1FD2" Association="Self.FK__Corona_in__id_va__3D5E1FD2">
+            <End Role="Vaccination" EntitySet="Vaccination" />
+            <End Role="Corona_information" EntitySet="Corona_information" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Corona_in__id_va__3E52440B" Association="Self.FK__Corona_in__id_va__3E52440B">
+            <End Role="Vaccination" EntitySet="Vaccination" />
+            <End Role="Corona_information" EntitySet="Corona_information" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Corona_in__membe__3A81B327" Association="Self.FK__Corona_in__membe__3A81B327">
+            <End Role="Member" EntitySet="Member" />
+            <End Role="Corona_information" EntitySet="Corona_information" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HMO_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Corona_information">
+          <Key>
+            <PropertyRef Name="member_id" />
+          </Key>
+          <Property Name="member_id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="t_positive_answer" Type="DateTime" Precision="3" />
+          <Property Name="recovery_date" Type="DateTime" Precision="3" />
+          <Property Name="id_vaccination_1" Type="Int32" />
+          <Property Name="id_vaccination_2" Type="Int32" />
+          <Property Name="id_vaccination_3" Type="Int32" />
+          <Property Name="id_vaccination_4" Type="Int32" />
+          <NavigationProperty Name="Vaccination" Relationship="Self.FK__Corona_in__id_va__3B75D760" FromRole="Corona_information" ToRole="Vaccination" />
+          <NavigationProperty Name="Vaccination1" Relationship="Self.FK__Corona_in__id_va__3C69FB99" FromRole="Corona_information" ToRole="Vaccination" />
+          <NavigationProperty Name="Vaccination2" Relationship="Self.FK__Corona_in__id_va__3D5E1FD2" FromRole="Corona_information" ToRole="Vaccination" />
+          <NavigationProperty Name="Vaccination3" Relationship="Self.FK__Corona_in__id_va__3E52440B" FromRole="Corona_information" ToRole="Vaccination" />
+          <NavigationProperty Name="Member" Relationship="Self.FK__Corona_in__membe__3A81B327" FromRole="Corona_information" ToRole="Member" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="member_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="member_last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="city_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="street_address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="house_number" Type="Int64" Nullable="false" />
+          <Property Name="date_of_birth" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="phone" Type="Int64" Nullable="false" />
+          <Property Name="mobile_phone" Type="Int64" Nullable="false" />
+          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Corona_information" Relationship="Self.FK__Corona_in__membe__3A81B327" FromRole="Member" ToRole="Corona_information" />
+        </EntityType>
+        <EntityType Name="Vaccination">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="vaccination_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="vaccine_manufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Corona_information" Relationship="Self.FK__Corona_in__id_va__3B75D760" FromRole="Vaccination" ToRole="Corona_information" />
+          <NavigationProperty Name="Corona_information1" Relationship="Self.FK__Corona_in__id_va__3C69FB99" FromRole="Vaccination" ToRole="Corona_information" />
+          <NavigationProperty Name="Corona_information2" Relationship="Self.FK__Corona_in__id_va__3D5E1FD2" FromRole="Vaccination" ToRole="Corona_information" />
+          <NavigationProperty Name="Corona_information3" Relationship="Self.FK__Corona_in__id_va__3E52440B" FromRole="Vaccination" ToRole="Corona_information" />
+        </EntityType>
+        <Association Name="FK__Corona_in__id_va__3B75D760">
+          <End Role="Vaccination" Type="Self.Vaccination" Multiplicity="0..1" />
+          <End Role="Corona_information" Type="Self.Corona_information" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vaccination">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Corona_information">
+              <PropertyRef Name="id_vaccination_1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Corona_in__id_va__3C69FB99">
+          <End Role="Vaccination" Type="Self.Vaccination" Multiplicity="0..1" />
+          <End Role="Corona_information" Type="Self.Corona_information" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vaccination">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Corona_information">
+              <PropertyRef Name="id_vaccination_2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Corona_in__id_va__3D5E1FD2">
+          <End Role="Vaccination" Type="Self.Vaccination" Multiplicity="0..1" />
+          <End Role="Corona_information" Type="Self.Corona_information" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vaccination">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Corona_information">
+              <PropertyRef Name="id_vaccination_3" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Corona_in__id_va__3E52440B">
+          <End Role="Vaccination" Type="Self.Vaccination" Multiplicity="0..1" />
+          <End Role="Corona_information" Type="Self.Corona_information" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vaccination">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Corona_information">
+              <PropertyRef Name="id_vaccination_4" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Corona_in__membe__3A81B327">
+          <End Role="Member" Type="Self.Member" Multiplicity="1" />
+          <End Role="Corona_information" Type="Self.Corona_information" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Member">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Corona_information">
+              <PropertyRef Name="member_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HMO_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Corona_information" EntityType="Self.Corona_information" />
+          <EntitySet Name="Members" EntityType="Self.Member" />
+          <EntitySet Name="Vaccinations" EntityType="Self.Vaccination" />
+          <AssociationSet Name="FK__Corona_in__id_va__3B75D760" Association="Self.FK__Corona_in__id_va__3B75D760">
+            <End Role="Vaccination" EntitySet="Vaccinations" />
+            <End Role="Corona_information" EntitySet="Corona_information" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Corona_in__id_va__3C69FB99" Association="Self.FK__Corona_in__id_va__3C69FB99">
+            <End Role="Vaccination" EntitySet="Vaccinations" />
+            <End Role="Corona_information" EntitySet="Corona_information" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Corona_in__id_va__3D5E1FD2" Association="Self.FK__Corona_in__id_va__3D5E1FD2">
+            <End Role="Vaccination" EntitySet="Vaccinations" />
+            <End Role="Corona_information" EntitySet="Corona_information" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Corona_in__id_va__3E52440B" Association="Self.FK__Corona_in__id_va__3E52440B">
+            <End Role="Vaccination" EntitySet="Vaccinations" />
+            <End Role="Corona_information" EntitySet="Corona_information" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Corona_in__membe__3A81B327" Association="Self.FK__Corona_in__membe__3A81B327">
+            <End Role="Member" EntitySet="Members" />
+            <End Role="Corona_information" EntitySet="Corona_information" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HMO_DBModelStoreContainer" CdmEntityContainer="HMO_DBEntities">
+          <EntitySetMapping Name="Corona_information">
+            <EntityTypeMapping TypeName="HMO_DBModel.Corona_information">
+              <MappingFragment StoreEntitySet="Corona_information">
+                <ScalarProperty Name="member_id" ColumnName="member_id" />
+                <ScalarProperty Name="t_positive_answer" ColumnName="t_positive_answer" />
+                <ScalarProperty Name="recovery_date" ColumnName="recovery_date" />
+                <ScalarProperty Name="id_vaccination_1" ColumnName="id_vaccination_1" />
+                <ScalarProperty Name="id_vaccination_2" ColumnName="id_vaccination_2" />
+                <ScalarProperty Name="id_vaccination_3" ColumnName="id_vaccination_3" />
+                <ScalarProperty Name="id_vaccination_4" ColumnName="id_vaccination_4" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="HMO_DBModel.Member">
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="member_name" ColumnName="member_name" />
+                <ScalarProperty Name="member_last_name" ColumnName="member_last_name" />
+                <ScalarProperty Name="city_address" ColumnName="city_address" />
+                <ScalarProperty Name="street_address" ColumnName="street_address" />
+                <ScalarProperty Name="house_number" ColumnName="house_number" />
+                <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="mobile_phone" ColumnName="mobile_phone" />
+                <ScalarProperty Name="image" ColumnName="image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vaccinations">
+            <EntityTypeMapping TypeName="HMO_DBModel.Vaccination">
+              <MappingFragment StoreEntitySet="Vaccination">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="vaccination_date" ColumnName="vaccination_date" />
+                <ScalarProperty Name="vaccine_manufacturer" ColumnName="vaccine_manufacturer" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a9d65f6fb5e841e5ba08cde115065929" Name="Diagram1">
+        <EntityTypeShape EntityType="HMO_DBModel.Corona_information" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HMO_DBModel.Member" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HMO_DBModel.Vaccination" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="HMO_DBModel.FK__Corona_in__id_va__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="HMO_DBModel.FK__Corona_in__id_va__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="HMO_DBModel.FK__Corona_in__id_va__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="HMO_DBModel.FK__Corona_in__id_va__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="HMO_DBModel.FK__Corona_in__membe__3A81B327" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

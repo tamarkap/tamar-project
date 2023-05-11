@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HMO_DBModelStoreContainer" CdmEntityContainer="HMO_DBEntities">
+    <EntitySetMapping Name="Corona_information">
+      <EntityTypeMapping TypeName="HMO_DBModel.Corona_information">
+        <MappingFragment StoreEntitySet="Corona_information">
+          <ScalarProperty Name="member_id" ColumnName="member_id" />
+          <ScalarProperty Name="t_positive_answer" ColumnName="t_positive_answer" />
+          <ScalarProperty Name="recovery_date" ColumnName="recovery_date" />
+          <ScalarProperty Name="id_vaccination_1" ColumnName="id_vaccination_1" />
+          <ScalarProperty Name="id_vaccination_2" ColumnName="id_vaccination_2" />
+          <ScalarProperty Name="id_vaccination_3" ColumnName="id_vaccination_3" />
+          <ScalarProperty Name="id_vaccination_4" ColumnName="id_vaccination_4" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="HMO_DBModel.Member">
+        <MappingFragment StoreEntitySet="Member">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="member_name" ColumnName="member_name" />
+          <ScalarProperty Name="member_last_name" ColumnName="member_last_name" />
+          <ScalarProperty Name="city_address" ColumnName="city_address" />
+          <ScalarProperty Name="street_address" ColumnName="street_address" />
+          <ScalarProperty Name="house_number" ColumnName="house_number" />
+          <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="mobile_phone" ColumnName="mobile_phone" />
+          <ScalarProperty Name="image" ColumnName="image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vaccinations">
+      <EntityTypeMapping TypeName="HMO_DBModel.Vaccination">
+        <MappingFragment StoreEntitySet="Vaccination">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="vaccination_date" ColumnName="vaccination_date" />
+          <ScalarProperty Name="vaccine_manufacturer" ColumnName="vaccine_manufacturer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

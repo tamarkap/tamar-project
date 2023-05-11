@@ -40,8 +40,34 @@ namespace DAL
 
         }
 
-
-
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public int notVaccinatedDal()
+        {
+            var amount = from i in DB.Corona_information
+                         where i.Vaccination1 == null
+                         select i.member_id;
+            amount.ToList<string>();
+            return amount.Count();
+        }
+        public Dictionary<DateTime, int> ActivePatientsDal()
+        {
+            Dictionary<DateTime, int> myDictionary = new Dictionary<DateTime, int>();
+            DateTime todey = DateTime.Today;
+            todey.AddMonths(-1);
+            for (int j = 0; j < 30; j++)
+            {
+               todey.AddDays(1);
+                var acount = from i in DB.Corona_information
+                             where i.t_positive_answer < todey && i.recovery_date > todey
+                             select i.member_id;
+                acount.ToList<string>();
+                int num= acount.Count();
+                myDictionary.Add(todey, num);
+            }
+            return myDictionary;
+        }
     }
 }

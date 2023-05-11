@@ -5,6 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Models;
 using DAL;
+using System.Drawing;
+
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BL
 {
@@ -13,23 +16,24 @@ namespace BL
         MemberDAL MemberDAL = new MemberDAL();
         public void Add(Member member)
         {
-            if (member.Id.Length != 9)
-            {
-                throw new Exception("Id is Invalid");
-            }
-            foreach (var item in member.Id)
-            {
-                if (item < 30 || item > 39)
-                {
-                    throw new Exception("Contains an invalid character");
-                }
-            }
+            //if (member.Id.Length != 9)
+            //{
+            //    throw new Exception("Id is Invalid");
+            //}
+            //foreach (var item in member.Id)
+            //{
+            //    if (item < 48 || item > 57)
+            //    {
+            //        throw new Exception("Contains an invalid character");
+            //    }
+            //}
             if (member.date_of_birth > DateTime.Today)
             {
                 throw new Exception("Invalid date");
             }
             MemberDAL.Add(member);
         }
+    
 
         public Member GetMember(string id)
         {
@@ -39,7 +43,7 @@ namespace BL
             }
             foreach (var item in id)
             {
-                if (item < 30 || item > 39)
+                if (item < 48 || item > 57)
                 {
                     throw new Exception("Contains an invalid character");
                 }
@@ -50,5 +54,6 @@ namespace BL
         {
            return MemberDAL.GetAllMembers();
         }
+       
     }
 }

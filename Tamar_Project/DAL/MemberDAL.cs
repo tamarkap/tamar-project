@@ -15,6 +15,9 @@ namespace DAL
         
         public void Add(Member member)
         {
+            member.Corona_information = new Corona_information();
+            member.Corona_information.member_id = member.Id;
+
             DB.Members.Add(member);
             DB.SaveChanges();
         }
@@ -36,6 +39,7 @@ namespace DAL
                 return null;
         else return DB.Members.ToList();
         }
+      
 
     }
 }

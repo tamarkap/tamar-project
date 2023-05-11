@@ -20,7 +20,7 @@ namespace BL
             }
             foreach (var item in id)
             {
-                if (item < 30 || item > 39)
+                if (item < 48 || item > 57)
                 {
                     throw new Exception("Contains an invalid character");
                 }

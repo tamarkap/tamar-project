@@ -13,7 +13,6 @@ namespace API
     
     public class CoronaInformationController: ApiController
     {
-        private readonly CoronaInformationBL CoronaInformationBL;
         CoronaInformationBL coronaInformationBL = new CoronaInformationBL();
 
         [HttpGet]
@@ -22,7 +21,7 @@ namespace API
         {
             try
             {
-                var CoronaInformation = CoronaInformationBL.GetCoronaInformationByMemberId(id);
+                var CoronaInformation = coronaInformationBL.GetCoronaInformationByMemberId(id);
                 return Request.CreateResponse(HttpStatusCode.OK, CoronaInformation);
             }
             catch (Exception e)
@@ -37,7 +36,7 @@ namespace API
         {
             try
             {
-                CoronaInformationBL.Add(c);
+                coronaInformationBL.Add(c);
                 var response = new HttpResponseMessage(HttpStatusCode.OK);
                 return response;
             }
@@ -47,6 +46,36 @@ namespace API
             }
         }
 
+        [HttpGet]
+        [Route("GetnotVaccinated")]
+        public HttpResponseMessage GetnotVaccinated()
+        {
+            try
+            {
+                int amount = coronaInformationBL.notVaccinatedBl();
+                return Request.CreateResponse(HttpStatusCode.OK, amount);
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, e);
+            }
 
+        }
+
+        [HttpGet]
+        [Route("GetActivePatients")]
+        public HttpResponseMessage GetActivePatients()
+        {
+            try
+            {
+                Dictionary<DateTime, int> myDictionary = coronaInformationBL.ActivePatientsBl();
+                return Request.CreateResponse(HttpStatusCode.OK, myDictionary);
+            }
+            catch (Exception e)
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest, e);
+            }
+
+        }
     }
 }

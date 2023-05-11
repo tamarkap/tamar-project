@@ -12,7 +12,6 @@ namespace API
 {
     public class VaccinationController : ApiController
     {
-        private readonly VaccinationBL vaccinationBL;
         VaccinationBL vaccinationBl =new VaccinationBL();
 
         [HttpGet]
@@ -20,7 +19,7 @@ namespace API
         public HttpResponseMessage GetVaccinations()
         {
             List <Vaccination> lst = new List <Vaccination>();
-            lst = vaccinationBL.GetAllVaccination();
+            lst = vaccinationBl.GetAllVaccination();
             return Request.CreateResponse(HttpStatusCode.OK, lst);
         }
 
@@ -30,7 +29,7 @@ namespace API
         {
             try
             {
-                vaccinationBL.Add(vaccination, id);
+                vaccinationBl.Add(vaccination, id);
                 var response = new HttpResponseMessage(HttpStatusCode.OK);
                 return response;
             }

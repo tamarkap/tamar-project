@@ -20,7 +20,7 @@ namespace BL
             }
             foreach (var item in corona_Information.member_id)
             {
-                if (item < 30 || item > 39)
+                if (item < 48 || item > 57)
                 {
                     throw new Exception("Contains an invalid character");
                 }
@@ -41,13 +41,20 @@ namespace BL
             }
             foreach (var item in memberId)
             {
-                if(item<30 || item >39)
+                if(item<48 || item >57)
                 {
                     throw new Exception("Contains an invalid character");
                 }
             }
             return GetCoronaInformationByMemberId(memberId);
         }
-
+        public int notVaccinatedBl()
+        {
+            return coronaInformationDal.notVaccinatedDal();
+        }
+       public Dictionary<DateTime, int> ActivePatientsBl()
+        {
+            return coronaInformationDal.ActivePatientsDal();
+        }
     }
 }

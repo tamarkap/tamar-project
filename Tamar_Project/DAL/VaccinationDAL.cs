@@ -9,7 +9,7 @@ namespace DAL
 {
     public class VaccinationDAL
     {
-        HMO_DBEntities DB = new HMO_DBEntities();
+        Entities DB = new Entities();
         public int Add(Vaccination vaccination)
         {
             DB.Vaccinations.Add(vaccination);

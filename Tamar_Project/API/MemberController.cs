@@ -26,7 +26,7 @@ namespace API
             return Request.CreateResponse(HttpStatusCode.OK);
         }
         [HttpGet]
-        [Route("getMember")]
+        [Route("getMemberById")]
         public HttpResponseMessage GetMember(string id)
         {
             try

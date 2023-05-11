@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HMO_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Corona_information">
           <Key>
             <PropertyRef Name="member_id" />
@@ -40,7 +40,7 @@
           <Property Name="vaccination_date" Type="datetime" Nullable="false" />
           <Property Name="vaccine_manufacturer" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
-        <Association Name="FK__Corona_in__id_va__3B75D760">
+        <Association Name="FK__Corona_in__id_va__29572725">
           <End Role="Vaccination" Type="Self.Vaccination" Multiplicity="0..1" />
           <End Role="Corona_information" Type="Self.Corona_information" Multiplicity="*" />
           <ReferentialConstraint>
@@ -52,7 +52,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Corona_in__id_va__3C69FB99">
+        <Association Name="FK__Corona_in__id_va__2A4B4B5E">
           <End Role="Vaccination" Type="Self.Vaccination" Multiplicity="0..1" />
           <End Role="Corona_information" Type="Self.Corona_information" Multiplicity="*" />
           <ReferentialConstraint>
@@ -64,7 +64,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Corona_in__id_va__3D5E1FD2">
+        <Association Name="FK__Corona_in__id_va__2B3F6F97">
           <End Role="Vaccination" Type="Self.Vaccination" Multiplicity="0..1" />
           <End Role="Corona_information" Type="Self.Corona_information" Multiplicity="*" />
           <ReferentialConstraint>
@@ -76,7 +76,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Corona_in__id_va__3E52440B">
+        <Association Name="FK__Corona_in__id_va__2C3393D0">
           <End Role="Vaccination" Type="Self.Vaccination" Multiplicity="0..1" />
           <End Role="Corona_information" Type="Self.Corona_information" Multiplicity="*" />
           <ReferentialConstraint>
@@ -88,7 +88,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Corona_in__membe__3A81B327">
+        <Association Name="FK__Corona_in__membe__286302EC">
           <End Role="Member" Type="Self.Member" Multiplicity="1" />
           <End Role="Corona_information" Type="Self.Corona_information" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -100,27 +100,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="HMO_DBModelStoreContainer">
+        <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="Corona_information" EntityType="Self.Corona_information" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vaccination" EntityType="Self.Vaccination" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__Corona_in__id_va__3B75D760" Association="Self.FK__Corona_in__id_va__3B75D760">
+          <AssociationSet Name="FK__Corona_in__id_va__29572725" Association="Self.FK__Corona_in__id_va__29572725">
             <End Role="Vaccination" EntitySet="Vaccination" />
             <End Role="Corona_information" EntitySet="Corona_information" />
           </AssociationSet>
-          <AssociationSet Name="FK__Corona_in__id_va__3C69FB99" Association="Self.FK__Corona_in__id_va__3C69FB99">
+          <AssociationSet Name="FK__Corona_in__id_va__2A4B4B5E" Association="Self.FK__Corona_in__id_va__2A4B4B5E">
             <End Role="Vaccination" EntitySet="Vaccination" />
             <End Role="Corona_information" EntitySet="Corona_information" />
           </AssociationSet>
-          <AssociationSet Name="FK__Corona_in__id_va__3D5E1FD2" Association="Self.FK__Corona_in__id_va__3D5E1FD2">
+          <AssociationSet Name="FK__Corona_in__id_va__2B3F6F97" Association="Self.FK__Corona_in__id_va__2B3F6F97">
             <End Role="Vaccination" EntitySet="Vaccination" />
             <End Role="Corona_information" EntitySet="Corona_information" />
           </AssociationSet>
-          <AssociationSet Name="FK__Corona_in__id_va__3E52440B" Association="Self.FK__Corona_in__id_va__3E52440B">
+          <AssociationSet Name="FK__Corona_in__id_va__2C3393D0" Association="Self.FK__Corona_in__id_va__2C3393D0">
             <End Role="Vaccination" EntitySet="Vaccination" />
             <End Role="Corona_information" EntitySet="Corona_information" />
           </AssociationSet>
-          <AssociationSet Name="FK__Corona_in__membe__3A81B327" Association="Self.FK__Corona_in__membe__3A81B327">
+          <AssociationSet Name="FK__Corona_in__membe__286302EC" Association="Self.FK__Corona_in__membe__286302EC">
             <End Role="Member" EntitySet="Member" />
             <End Role="Corona_information" EntitySet="Corona_information" />
           </AssociationSet>
@@ -129,7 +129,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="HMO_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Corona_information">
           <Key>
             <PropertyRef Name="member_id" />
@@ -141,11 +141,11 @@
           <Property Name="id_vaccination_2" Type="Int32" />
           <Property Name="id_vaccination_3" Type="Int32" />
           <Property Name="id_vaccination_4" Type="Int32" />
-          <NavigationProperty Name="Vaccination" Relationship="Self.FK__Corona_in__id_va__3B75D760" FromRole="Corona_information" ToRole="Vaccination" />
-          <NavigationProperty Name="Vaccination1" Relationship="Self.FK__Corona_in__id_va__3C69FB99" FromRole="Corona_information" ToRole="Vaccination" />
-          <NavigationProperty Name="Vaccination2" Relationship="Self.FK__Corona_in__id_va__3D5E1FD2" FromRole="Corona_information" ToRole="Vaccination" />
-          <NavigationProperty Name="Vaccination3" Relationship="Self.FK__Corona_in__id_va__3E52440B" FromRole="Corona_information" ToRole="Vaccination" />
-          <NavigationProperty Name="Member" Relationship="Self.FK__Corona_in__membe__3A81B327" FromRole="Corona_information" ToRole="Member" />
+          <NavigationProperty Name="Vaccination" Relationship="Self.FK__Corona_in__id_va__29572725" FromRole="Corona_information" ToRole="Vaccination" />
+          <NavigationProperty Name="Vaccination1" Relationship="Self.FK__Corona_in__id_va__2A4B4B5E" FromRole="Corona_information" ToRole="Vaccination" />
+          <NavigationProperty Name="Vaccination2" Relationship="Self.FK__Corona_in__id_va__2B3F6F97" FromRole="Corona_information" ToRole="Vaccination" />
+          <NavigationProperty Name="Vaccination3" Relationship="Self.FK__Corona_in__id_va__2C3393D0" FromRole="Corona_information" ToRole="Vaccination" />
+          <NavigationProperty Name="Member" Relationship="Self.FK__Corona_in__membe__286302EC" FromRole="Corona_information" ToRole="Member" />
         </EntityType>
         <EntityType Name="Member">
           <Key>
@@ -161,7 +161,7 @@
           <Property Name="phone" Type="Int64" Nullable="false" />
           <Property Name="mobile_phone" Type="Int64" Nullable="false" />
           <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="Corona_information" Relationship="Self.FK__Corona_in__membe__3A81B327" FromRole="Member" ToRole="Corona_information" />
+          <NavigationProperty Name="Corona_information" Relationship="Self.FK__Corona_in__membe__286302EC" FromRole="Member" ToRole="Corona_information" />
         </EntityType>
         <EntityType Name="Vaccination">
           <Key>
@@ -170,12 +170,12 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="vaccination_date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="vaccine_manufacturer" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Corona_information" Relationship="Self.FK__Corona_in__id_va__3B75D760" FromRole="Vaccination" ToRole="Corona_information" />
-          <NavigationProperty Name="Corona_information1" Relationship="Self.FK__Corona_in__id_va__3C69FB99" FromRole="Vaccination" ToRole="Corona_information" />
-          <NavigationProperty Name="Corona_information2" Relationship="Self.FK__Corona_in__id_va__3D5E1FD2" FromRole="Vaccination" ToRole="Corona_information" />
-          <NavigationProperty Name="Corona_information3" Relationship="Self.FK__Corona_in__id_va__3E52440B" FromRole="Vaccination" ToRole="Corona_information" />
+          <NavigationProperty Name="Corona_information" Relationship="Self.FK__Corona_in__id_va__29572725" FromRole="Vaccination" ToRole="Corona_information" />
+          <NavigationProperty Name="Corona_information1" Relationship="Self.FK__Corona_in__id_va__2A4B4B5E" FromRole="Vaccination" ToRole="Corona_information" />
+          <NavigationProperty Name="Corona_information2" Relationship="Self.FK__Corona_in__id_va__2B3F6F97" FromRole="Vaccination" ToRole="Corona_information" />
+          <NavigationProperty Name="Corona_information3" Relationship="Self.FK__Corona_in__id_va__2C3393D0" FromRole="Vaccination" ToRole="Corona_information" />
         </EntityType>
-        <Association Name="FK__Corona_in__id_va__3B75D760">
+        <Association Name="FK__Corona_in__id_va__29572725">
           <End Role="Vaccination" Type="Self.Vaccination" Multiplicity="0..1" />
           <End Role="Corona_information" Type="Self.Corona_information" Multiplicity="*" />
           <ReferentialConstraint>
@@ -187,7 +187,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Corona_in__id_va__3C69FB99">
+        <Association Name="FK__Corona_in__id_va__2A4B4B5E">
           <End Role="Vaccination" Type="Self.Vaccination" Multiplicity="0..1" />
           <End Role="Corona_information" Type="Self.Corona_information" Multiplicity="*" />
           <ReferentialConstraint>
@@ -199,7 +199,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Corona_in__id_va__3D5E1FD2">
+        <Association Name="FK__Corona_in__id_va__2B3F6F97">
           <End Role="Vaccination" Type="Self.Vaccination" Multiplicity="0..1" />
           <End Role="Corona_information" Type="Self.Corona_information" Multiplicity="*" />
           <ReferentialConstraint>
@@ -211,7 +211,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Corona_in__id_va__3E52440B">
+        <Association Name="FK__Corona_in__id_va__2C3393D0">
           <End Role="Vaccination" Type="Self.Vaccination" Multiplicity="0..1" />
           <End Role="Corona_information" Type="Self.Corona_information" Multiplicity="*" />
           <ReferentialConstraint>
@@ -223,7 +223,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__Corona_in__membe__3A81B327">
+        <Association Name="FK__Corona_in__membe__286302EC">
           <End Role="Member" Type="Self.Member" Multiplicity="1" />
           <End Role="Corona_information" Type="Self.Corona_information" Multiplicity="0..1" />
           <ReferentialConstraint>
@@ -235,27 +235,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="HMO_DBEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Corona_information" EntityType="Self.Corona_information" />
           <EntitySet Name="Members" EntityType="Self.Member" />
           <EntitySet Name="Vaccinations" EntityType="Self.Vaccination" />
-          <AssociationSet Name="FK__Corona_in__id_va__3B75D760" Association="Self.FK__Corona_in__id_va__3B75D760">
+          <AssociationSet Name="FK__Corona_in__id_va__29572725" Association="Self.FK__Corona_in__id_va__29572725">
             <End Role="Vaccination" EntitySet="Vaccinations" />
             <End Role="Corona_information" EntitySet="Corona_information" />
           </AssociationSet>
-          <AssociationSet Name="FK__Corona_in__id_va__3C69FB99" Association="Self.FK__Corona_in__id_va__3C69FB99">
+          <AssociationSet Name="FK__Corona_in__id_va__2A4B4B5E" Association="Self.FK__Corona_in__id_va__2A4B4B5E">
             <End Role="Vaccination" EntitySet="Vaccinations" />
             <End Role="Corona_information" EntitySet="Corona_information" />
           </AssociationSet>
-          <AssociationSet Name="FK__Corona_in__id_va__3D5E1FD2" Association="Self.FK__Corona_in__id_va__3D5E1FD2">
+          <AssociationSet Name="FK__Corona_in__id_va__2B3F6F97" Association="Self.FK__Corona_in__id_va__2B3F6F97">
             <End Role="Vaccination" EntitySet="Vaccinations" />
             <End Role="Corona_information" EntitySet="Corona_information" />
           </AssociationSet>
-          <AssociationSet Name="FK__Corona_in__id_va__3E52440B" Association="Self.FK__Corona_in__id_va__3E52440B">
+          <AssociationSet Name="FK__Corona_in__id_va__2C3393D0" Association="Self.FK__Corona_in__id_va__2C3393D0">
             <End Role="Vaccination" EntitySet="Vaccinations" />
             <End Role="Corona_information" EntitySet="Corona_information" />
           </AssociationSet>
-          <AssociationSet Name="FK__Corona_in__membe__3A81B327" Association="Self.FK__Corona_in__membe__3A81B327">
+          <AssociationSet Name="FK__Corona_in__membe__286302EC" Association="Self.FK__Corona_in__membe__286302EC">
             <End Role="Member" EntitySet="Members" />
             <End Role="Corona_information" EntitySet="Corona_information" />
           </AssociationSet>
@@ -265,9 +265,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HMO_DBModelStoreContainer" CdmEntityContainer="HMO_DBEntities">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
           <EntitySetMapping Name="Corona_information">
-            <EntityTypeMapping TypeName="HMO_DBModel.Corona_information">
+            <EntityTypeMapping TypeName="Model.Corona_information">
               <MappingFragment StoreEntitySet="Corona_information">
                 <ScalarProperty Name="member_id" ColumnName="member_id" />
                 <ScalarProperty Name="t_positive_answer" ColumnName="t_positive_answer" />
@@ -280,7 +280,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Members">
-            <EntityTypeMapping TypeName="HMO_DBModel.Member">
+            <EntityTypeMapping TypeName="Model.Member">
               <MappingFragment StoreEntitySet="Member">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="member_name" ColumnName="member_name" />
@@ -296,7 +296,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Vaccinations">
-            <EntityTypeMapping TypeName="HMO_DBModel.Vaccination">
+            <EntityTypeMapping TypeName="Model.Vaccination">
               <MappingFragment StoreEntitySet="Vaccination">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="vaccination_date" ColumnName="vaccination_date" />

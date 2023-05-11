@@ -10,7 +10,7 @@ namespace DAL
 {
     public class CoronaInformationDal
     {
-        HMO_DBEntities DB = new HMO_DBEntities();
+        Entities DB = new Entities();
         public void Add(Corona_information corona_Information)
         {
             DB.Corona_information.Add(corona_Information);

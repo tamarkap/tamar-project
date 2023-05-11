@@ -13,10 +13,10 @@ namespace Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class HMO_DBEntities : DbContext
+    public partial class Entities : DbContext
     {
-        public HMO_DBEntities()
-            : base("name=HMO_DBEntities")
+        public Entities()
+            : base("name=Entities")
         {
         }
     

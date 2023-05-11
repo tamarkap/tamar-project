@@ -11,7 +11,7 @@ namespace DAL
    public class MemberDAL
     
     {
-        HMO_DBEntities DB = new HMO_DBEntities();
+        Entities DB = new Entities();
         
         public void Add(Member member)
         {
@@ -19,7 +19,9 @@ namespace DAL
             member.Corona_information.member_id = member.Id;
 
             DB.Members.Add(member);
+            DB.Corona_information.Add(member.Corona_information);   
             DB.SaveChanges();
+
         }
         public Member GetMember(string id)
         {
@@ -37,7 +39,8 @@ namespace DAL
         {
             if (DB.Members.ToList() == null)
                 return null;
-        else return DB.Members.ToList();
+            else
+                return DB.Members.ToList();
         }
       
 
